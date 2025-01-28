@@ -4,7 +4,7 @@
      meio de uma solicitação GET ou POST ou passado por meio de um cookie*/
     session_start();
 
-    define('INCLUDE_PATH', 'http://localhost/Projeto_01teste/'); // Definir o domínio do site
+    define('INCLUDE_PATH', 'http://localhost/Projeto_01testee/'); // Definir o domínio do site
 
     define('INCLUDE_PATH_PAINEL',INCLUDE_PATH.'painel/');
 
