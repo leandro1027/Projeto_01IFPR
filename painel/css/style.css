@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 22px;
+    font-family: "Open Sans", sans-serif;
+}
+
+/*Boot CSS*/
+html,
+body {
+    height: 100%;
+}
+
+.box-login {
+    max-width: 600px;
+    width: 90%;
+    padding: 20px 2%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 10px #333;
+}
+
+.box-login input[type="text"],
+.box-login input[type="password"] {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    padding-left: 10px;
+    border: 2px solid black;
+}
+
+.box-login input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    background-color: rgb(75, 221, 75);
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.erro-box {
+    width: 100%;
+    padding: 8px 2%;
+    text-align: center;
+    background-color: red;
+    color: white;
+    font: 18px;
+}
+
+/*Painel de controle*/
+
+.clear {
+    clear: both;
+}
+
+.center {
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+aside {
+    left: 0;
+    top: 0;
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+    background-color: rgb(11, 136, 11);
+    width: 250px;
+    padding-top: 13px;
+}
+
+div.box-usuario {
+    text-align: center;
+}
+
+.avatar-usuario {
+    text-align: left;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.avatar-usuario i {
+    font-size: 50px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.nome-usuario {
+    margin-top: 10px;
+}
+
+.nome-usuario p {
+    margin-top: 10px;
+    color: white;
+}
+
+.imagem-usuario {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.imagem-usuario img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+
+header {
+    position: relative;
+    left: 250px;
+    padding: 10px 0;
+    background-color: rgb(75, 221, 75);
+    width: calc(100% - 250px);
+}
+
+.logout {
+    float: right;
+}
+
+.logout a {
+    color: white;
+    font-size: 18px;
+}
+
+.home-btn{
+    float: right;
+}
+
+.home-btn a{
+    color: white;
+    padding: 0 25px;
+}
+
+.menu-btn {
+    float: left;
+    cursor: pointer;
+    color: white;
+}
+
+.box-login img {
+    height: 100px;
+    width: 100px;
+}
+
+.box-login input[type=submit]:hover {
+    background-color: rgb(19, 149, 19);
+}
+
+/*boot css*/
+
+.w100{
+    width: 100%;
+}
+
+.w50{
+    width: 50%;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.clear{
+    clear: both;
+}
+
+.content {
+    width: calc(100% - 250px);
+    left: 250px;
+    position: relative;
+
+}
+
+/*conteudo principal do painel*/
+.box-content{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 1px 1px 10px black;    
+    margin-bottom: 30px;
+}
+
+.box-content h2{
+    font-weight: 300;
+    font: 23px;
+}
+
+.box-metricas{
+    margin-top: 12px;
+    text-align: center;
+}
+
+.box-metricas-single{
+    float: left;
+    position: relative;
+    width: 33.3%;
+    padding-top: 10px;
+    min-height: 80px;
+    background-color: rgb(19, 149, 19);
+    border: 5px solid white;
+}
+
+.box-metricas .box-metricas-single:nth-of-type(2){
+    background-color: yellow;
+}
+
+.box-metricas .box-metricas-single:nth-of-type(3){
+    background-color: red;
+}
+
+.table-responsive{
+    margin: 2%;
+}
+
+.table-responsive .row:nth-of-type(1){
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    background-color: rgb(75, 221, 75);
+}
+
+.table-responsive .row{
+   text-align: center;
+   padding: 8px 0;
+   border-bottom: 1px solid black;
+}
+
+.items-menu {
+    margin-top: 30px;
+       
+}
+
+.items-menu h2 {
+    padding: 8px;
+    text-align: left;
+    color: white;
+    background-color: black;
+    box-shadow: 1px 1px 5px black;
+
+}
+
+.items-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 6px;
+    border-bottom: 2px solid white;
+}
+.menu-active{
+    background-color: black;
+}
+.menu-active::before{
+    content: '> ';
+}
+
+.box-content form{
+    margin: 30px;
+}
+.box-content .form-group{
+    margin: 20px 0;
+}
+.box-content form input[type="text"],
+.box-content form input[type="password"],
+.box-content form input[type="file"]{
+    margin-top: 5px;
+    width: 100%;
+    height: 40px;
+    padding: 4px;
+    border: 1px solid black;
+}
+.box-content form input[type="submit"]{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    background-color: rgb(19, 149, 19);
+    cursor: pointer;
+    color: white;
+    box-shadow: 1px 1px 10px rgb(19, 149, 19);
+}
+.box-alert{
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+.sucesso{
+    background-color: rgb(75, 221, 75);
+}
+.erro{
+    background-color: red;
+}
+
+/*mobile*/
+
+@media screen and (max-width:768px) {
+    aside {
+        display: none;
+    }
+
+    header,
+    .content {
+        width: 100%;
+        left: 0;
+    }
+
+    .box-metricas-single{
+        width: 100%;
+    }
+}
