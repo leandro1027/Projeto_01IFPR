@@ -25,6 +25,7 @@ verificaPermissaoPagina(2);
         <select name="cargo">
             <?php 
                 foreach(Painel::$cargos as $key => $value){
+                    if($key <$_SESSION  ['cargo'])
                     echo '<option value="'.$key.'">'.value.'</option>';
                 }
             ?>
