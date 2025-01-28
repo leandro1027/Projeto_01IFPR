@@ -19,6 +19,20 @@ verificaPermissaoPagina(2);
         <label for="nome">Nome:</label>
         <input type="text" name="nome" required>
     </div>
+
+    <div class="form-group">
+        <label for="cargos">Cargo::</label>
+        <select name="cargo">
+            <?php 
+                foreach(Painel::$cargos as $key => $value){
+                    echo '<option value="'.$key.'">'.value.'</option>';
+                }
+            ?>
+        </select>
+    </div>
+
+
+
     <div class="form-group">
         <label for="nome">Senha:</label>
         <input type="password" name="senha" required>
