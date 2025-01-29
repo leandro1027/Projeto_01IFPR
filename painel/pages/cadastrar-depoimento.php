@@ -1,5 +1,5 @@
 <div class="box-content"><
-<h2><i class ="fas fa-edit"></i> Adicionar Depoimentos</h2>/div>
+<h2><i class ="fas fa-plus"></i> Adicionar Depoimentos</h2>/div>
 
 <form method="post" enctype="multipart/form-data">
     <?php 
@@ -19,6 +19,11 @@
         <label for="nome">Depoimento:</label>
         <textarea name="depoimento"></textarea>
     </div>
+    <div class="form-group">
+        <label for="nome">Data:</label>
+        <input type="text" name="data">
+    </div>
+
 
     <div class="form-group">
         <input type="hidden" name="nomeTabela" value="tb_admin.depoimentos">

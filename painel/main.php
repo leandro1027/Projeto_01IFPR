@@ -46,7 +46,7 @@ if (isset($_GET['logout'])) {
             <a <?php selecionaMenu('cadastrar-servico')?> href="">Serviço</a>
             <h2>Gestão</h2>
             <a <?php selecionaMenu('listar-slides')?> href="">Slide</a>
-            <a <?php selecionaMenu('listar-Depoimentos')?> href="">Depoimentos</a>
+            <a <?php selecionaMenu('listar-Depoimentos')?> href="<?php echo INCLUDE_PATH_PAINEL; ?>listar-depoimentos">Depoimentos</a>
             <a <?php selecionaMenu('listar-servicos')?> href="">Serviços</a>
             <h2>Usuario</h2>
             <a <?php selecionaMenu('editar-usuario')?> href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-usuario">Editar</a>
