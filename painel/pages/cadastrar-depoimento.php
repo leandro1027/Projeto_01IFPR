@@ -1,1 +1,2 @@
-<h2>Aqui é o cadastro de depoimento!</h2>
+<div class="box-content"><
+<h2><i class ="fas fa-edit"></i> Adicionar Depoimentos</h2>/div>
