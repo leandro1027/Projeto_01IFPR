@@ -231,6 +231,9 @@ p.depoimentos-descricao {
     font-size: 18px;
 }
 /*table listar depoimentos*/
+.wraper-table{
+    overflow: auto;
+}
 table{
     margin: 20px 0;
     width: 100%;
