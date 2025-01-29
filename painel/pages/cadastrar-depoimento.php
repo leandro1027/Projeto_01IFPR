@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         <label for="nome">Data:</label>
-        <input type="text" name="data">
+        <input fomato="data" type="text" name="data">
     </div>
 
 
