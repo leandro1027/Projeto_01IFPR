@@ -1,5 +1,7 @@
 <?php 
-$depoimentos = Painel::getAll('tb_admin.depoimentos');
+$paginaAtual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
+$porPagina = 2;
+$depoimentos = Painel::getAll('tb_admin.depoimentos', ($paginaAtual - 1)*$porPagina, $porPagina);
 ?>
 
 <div class="box-content">
@@ -25,6 +27,16 @@ $depoimentos = Painel::getAll('tb_admin.depoimentos');
     </div> <!--wraper-->
 
     <div class="paginacao">
+        <?php 
+        $totalPaginas = ceil(count(Painel::getAll('tb_admin.depoimentos')) / $porPagina);
+        for ($i=1; $i <= $totalPaginas ; $i++) {  
+            if ($i == $paginaAtual) 
+               echo '<a class="page-selected" href="">'.$i.'</a>';
+            else
+                echo '<a href="">'.$i.'</a>';
+            }
+        
+        ?>
         <a  class="page-selected" href="">1</a>
         <a href="">2</a>
         <a href="">3</a>

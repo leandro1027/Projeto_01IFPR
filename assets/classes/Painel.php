@@ -121,13 +121,12 @@
     }
 
     public static function getAll($tabela, $start = null, $end = null){
-        if ($start == null && $end == null){
+        if ($start == null && $end == null)
             $sql = MySql::conectar()->prepare("SELECT * FROM `tabela`");
-            $sql->execute();
-        }else{
-            $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` LIMIT $start $end");
-            $sql->execute();
-        }
+        else
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` ORDER BY id DESC LIMIT $start, $end");
+
+        $sql->execute();
         return $sql->fetchAll();
     }
 }
