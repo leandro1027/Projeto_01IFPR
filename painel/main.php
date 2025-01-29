@@ -70,9 +70,9 @@ if (isset($_GET['logout'])) {
             </div>
 
             <div class="home-btn">
-                <a href="<?php echo INCLUDE_PATH_PAINEL; ?>">
-                    <i class="fa-solid fa-house" aria-hidden="true"></i>
-                </a>
+                <a <?php if(@$_GET['url'] == ''){ ?> style="color:black:" <?php } ?>
+                    href="<?php echo INCLUDE_PATH_PAINEL; ?>">
+                    <i class="fa-solid fa-house" aria-hidden="true"></i></a>
             </div>
             <div class="clear"></div>
         </div>

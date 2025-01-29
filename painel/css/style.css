@@ -41,6 +41,10 @@ body {
     cursor: pointer;
     border: 2px solid black;
 }
+.box-login input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
 
 .erro-box {
     width: 100%;
@@ -157,8 +161,9 @@ header {
 }
 
 .box-login img {
-    height: 100px;
-    width: 100px;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 40px;
 }
 
 .box-login input[type=submit]:hover {
@@ -327,5 +332,9 @@ header {
 
     .box-metricas-single{
         width: 100%;
+    }
+    .box-login img{
+        width: 150px;
+        height: 150px;
     }
 }

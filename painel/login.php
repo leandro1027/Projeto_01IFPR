@@ -36,12 +36,17 @@
         }
         ?>
 
+        <img src="../ifpr_logo.png">
+
         <form action="" method="post">
-            <img src="../ifpr_logo.png " alt="">
             <input type="text" name="user" placeholder="Login" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" name="acao" value="Logar">
+            <label for="lembrae">Lembrar-me</label>
+            <input type="checkbox" name="lembrar" id="">
         </form>
+        <br>
+        <a class="voltar" href="<?php echo INCLUDE_PATH; ?>">Página Inicial</a>
     </div>
 </body>
 

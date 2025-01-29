@@ -13,6 +13,7 @@
         }
 
         public static function logout(){
+            setcookie('lembrar', true, time() -3600, '/');
             session_destroy();
             header('Location: '.INCLUDE_PATH_PAINEL);
         }

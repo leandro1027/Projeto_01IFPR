@@ -368,6 +368,7 @@ footer.fixed{
     height: 600px;
 }
 
+
 /*@media screen -> Mobile*/
 @media screen and (max-width: 768px) {
     img {
