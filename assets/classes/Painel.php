@@ -119,5 +119,11 @@
             return $certo;
         }
     }
+
+    public static function getAll($tabela){
+        $sql = MySql::conectar()->prepare("SELECT * FROM `tabela`");
+        $sql->execute();
+        return$sql->fetchAll();
+    }
 }
 ?>
