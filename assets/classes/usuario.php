@@ -18,5 +18,9 @@
             return false;
 
         }
+        public static function registerUser($login, $password, $nome, $cargo){
+            $sql = MySql::conectar()->prepare("INSERT INTO `tb_admin.usuarios` VALUES (null, ?,?,?,?,?");
+            $sql = MySql::execute(array($login, $password,'', $nome, $cargo));
+        }
     }
 ?>

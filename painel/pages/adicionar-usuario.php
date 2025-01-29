@@ -22,12 +22,17 @@ verificaPermissaoPagina(2);
         } else if($password == ''){
             Painel::messageToUser('erro','Preencha a senha');
     } else{
+
         if($cargo >= $_SESSION['cargo']){
             Painel::messageToUser('erro', 'Selecione um cargo menor que o seu!');
+        }else if(Usuario::userExists($login)){
+                Painel::messageToUser('erro', 'Login indisponivel');
         }else{
             //podemos add users pelo banco
+            $usuario = new usuario();
+            $usuario->registerUser($login, $password, $nome, $cargo);
             Painel::messageToUser('sucesso', 'Podemos adicionar');
-            $usuario = new usuario;
+            
         }
     }
 }
