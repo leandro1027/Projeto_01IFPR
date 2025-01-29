@@ -8,8 +8,29 @@ verificaPermissaoPagina(2);
 <form method="post" enctype="multipart/form-data">
     <?php 
     if (isset($_POST['acao'])) {
-    
+        $login = $_POST['login'];
+        $nome = $_POST['nome'];
+        $cargo = $_FILES['cargo'];
+        $password = $_POST['password'];
+
+        if ($login == '') {
+           Painel::messageToUser('erro','Preencha o login');
+        } else if ($nome == ''){
+        Painel::messageToUser('erro','Preencha o nome');
+        } else if ($cargo == ''){
+            Painel::messageToUser('erro','Preencha o cargo');
+        } else if($password == ''){
+            Painel::messageToUser('erro','Preencha a senha');
+    } else{
+        if($cargo >= $_SESSION['cargo']){
+            Painel::messageToUser('erro', 'Selecione um cargo menor que o seu!');
+        }else{
+            //podemos add users pelo banco
+            Painel::messageToUser('sucesso', 'Podemos adicionar');
+            $usuario = new usuario;
+        }
     }
+}
 ?>
 <div class="form-group">
         <label for="nome">Login:</label>
