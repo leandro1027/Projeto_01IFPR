@@ -245,6 +245,26 @@ header {
     background-color: rgb(75, 221, 75);
 }
 
+.paginacao{
+    margin: 10px 0;
+    text-align: center;
+}
+.paginacao a{
+    font: 14px;
+    margin: 0 8px;
+    display: inline-block;
+    padding: 4px;
+    border: 1 px solid black;
+    text-decoration: none;
+    color: black;
+}
+.paginacao a.page-selected{
+    background-color: black;
+    color:white ;
+}
+
+
+
 .table-responsive .row{
    text-align: center;
    padding: 8px 0;
