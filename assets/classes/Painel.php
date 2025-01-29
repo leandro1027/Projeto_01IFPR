@@ -96,5 +96,28 @@
         $sql->execute(); 
         return $sql->fetchALL();
     }
+
+    public static function insert($arr){
+        $certo = true;
+        $nomeTabela = $arr['nomeTabela'];
+        $query ="INSERT INTO `nomeTabela` VALUES (null";
+        foreach($arr as $key  => $value){
+            if ($nome == 'acao' || $nome == 'nomeTabela') {
+                continue;
+                if ($value =='') {
+                    $certo = false;
+                    break;
+                }
+                $query.=",?";
+                $parametros[] = $value;
+            }
+            $query.=")";
+            if($certo){
+                $sql = MySql::conectar()->prepare($query);
+                $sql->execute($parametros);
+            }
+            return $certo;
+        }
+    }
 }
 ?>

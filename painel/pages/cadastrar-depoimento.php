@@ -4,7 +4,11 @@
 <form method="post" enctype="multipart/form-data">
     <?php 
     if(isset($_POST['acao'])){
-        Painel::messageToUser('sucesso', 'Depoimento cadastrado com sucesso!');
+        if (Painel::insert($_POST)) {
+            Painel::messageToUser('sucesso','Depoimento cadastrado com sucesso!');
+        }else{
+        Painel::messageToUser('erro', 'Não foi possivel cadastrar o depoimento!');
+        }
     }
     ?>
     <div class="form-group">
@@ -17,6 +21,7 @@
     </div>
 
     <div class="form-group">
+        <input type="hidden" name="nomeTabela" value="tb_admin.depoimentos">
         <input type="submit" name="acao" value="Cadastrar">
     </div>
 </form>
