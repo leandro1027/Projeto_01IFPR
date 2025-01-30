@@ -149,5 +149,35 @@
         $sql->execute($arr);
         return $sql->fetchAll();
     }
+    public static function update($arr){
+        $certo= true;
+        $first = false;
+        $nomeTabela = $arr['nomeTabela'];
+        $query = "UPDATE `nomeTabela` SET ";
+        foreach($arr as $key => $value){
+            $nome = $key;
+            if($nome == 'acao' || $nome == 'nomeTabela' || $nome == 'id')
+                continue;
+            if($value == ''){
+                $certo = false;
+                break;
+            }
+            if ($first == false) {
+                $first = true;
+                $query.="$nome=?";
+            }else{
+                $query.=",$nome=?";
+            }
+            $parametros[] = $value;
+        }
+        if ($certo) {
+            $parametros[] = $arr['id'];
+            $sql = MySql::conectar()->prepare($query.' WHERE id = ?');
+            $sql->execute($parametros);
+        }
+        return $certo;
+    }
+
+
 }
 ?>
