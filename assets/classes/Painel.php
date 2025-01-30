@@ -139,5 +139,10 @@
             $sql->execute(array($id));
         }
     }
+
+    public static function redirect($url){
+        echo '<script>location.href="'.$url.'"</script>';
+        die();
+    }
 }
 ?>
