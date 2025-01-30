@@ -245,6 +245,14 @@ header {
     background-color: rgb(75, 221, 75);
 }
 
+.order-up{
+    color: green;
+}
+.order-down{
+    color: red;
+}
+
+
 .paginacao{
     margin: 10px 0;
     text-align: center;

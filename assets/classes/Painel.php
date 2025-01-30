@@ -115,6 +115,9 @@
             if($certo){
                 $sql = MySql::conectar()->prepare($query);
                 $sql->execute($parametros);
+                $lastId = MySql::conectar()_>lastInsertId();
+                $sql = MySql::conectar()->prepare("UPDATE `$nomeTabela` SET  order_id = ? WHERE id = $lastId");
+                $sql->execute(array($lastId));
             }
             return $certo;
         }
@@ -178,6 +181,38 @@
         return $certo;
     }
 
+    public static function orderItem($tabela, $orderType, $id){
+        if($orderType == 'up'){
+            $infoItemAtual = Painel::get($tabela, 'id=?', array($id));
+            $order_id = $infoItemAtual['order_id'];
+            $itemBefore = MySql::conectar()->prepare("SELECT * FROM `tabela` WHERE order_id < $order_id ORDER BY order_id DESC LIMIT 1");
+            $itemBefore->execute();
+            if($itemBefore->rowCount()==0)
+            return;
+        $itemBefore = $itemBefore->fetch();
+        Painel::update(array('nomeTabela' => $tabela,
+                            'id' => $itemBefore['id'],
+                            'order_id' => $infoItemAtual['order_id']));
+        Painel::update(array('nomeTabela' => $tabela,
+                            'id' => $infoItemAtual['id'],
+                            'order_id' => $itemBefore['order_id']));
+        }else if($orderType == 'down'){
+            $infoItemAtual = Painel::get($tabela, 'id=?', array($id));
+            $order_id = $infoItemAtual['order_id'];
+            $itemBefore = MySql::conectar()->prepare("SELECT * FROM `tabela` WHERE order_id < $order_id ORDER BY order_id ASC LIMIT 1");
+            $itemBefore->execute();
+            if($itemBefore->rowCount()==0)
+            return;
+        $itemBefore = $itemBefore->fetch();
+        Painel::update(array('nomeTabela' => $tabela,
+                            'id' => $itemBefore['id'],
+                            'order_id' => $infoItemAtual['order_id']));
+        Painel::update(array('nomeTabela' => $tabela,
+                            'id' => $infoItemAtual['id'],
+                            'order_id' => $itemBefore['order_id']));
 
+
+        }
+    }
 }
 ?>
