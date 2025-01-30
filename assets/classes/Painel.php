@@ -125,9 +125,9 @@
 
     public static function getAll($tabela, $start = null, $end = null){
         if ($start == null && $end == null)
-            $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` ORDER BY order_id DESC");
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY order_id DESC");
         else
-            $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` ORDER BY order_id DESC LIMIT $start, $end");
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY order_id DESC LIMIT $start, $end");
 
         $sql->execute();
         return $sql->fetchAll();
@@ -148,7 +148,7 @@
         die();
     }
     public static function get($tabela, $query, $arr){
-        $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` WHERE $query");
+        $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` WHERE $query");
         $sql->execute($arr);
         return $sql->fetchAll();
     }
@@ -156,7 +156,7 @@
         $certo= true;
         $first = false;
         $nomeTabela = $arr['nomeTabela'];
-        $query = "UPDATE `nomeTabela` SET ";
+        $query = "UPDATE `$nomeTabela` SET ";
         foreach($arr as $key => $value){
             $nome = $key;
             if($nome == 'acao' || $nome == 'nomeTabela' || $nome == 'id')
@@ -185,7 +185,7 @@
         if($orderType == 'up'){
             $infoItemAtual = Painel::get($tabela, 'id=?', array($id));
             $order_id = $infoItemAtual['order_id'];
-            $itemBefore = MySql::conectar()->prepare("SELECT * FROM `tabela` WHERE order_id < $order_id ORDER BY order_id DESC LIMIT 1");
+            $itemBefore = MySql::conectar()->prepare("SELECT * FROM `$tabela` WHERE order_id < $order_id ORDER BY order_id DESC LIMIT 1");
             $itemBefore->execute();
             if($itemBefore->rowCount()==0)
             return;
@@ -199,7 +199,7 @@
         }else if($orderType == 'down'){
             $infoItemAtual = Painel::get($tabela, 'id=?', array($id));
             $order_id = $infoItemAtual['order_id'];
-            $itemBefore = MySql::conectar()->prepare("SELECT * FROM `tabela` WHERE order_id < $order_id ORDER BY order_id ASC LIMIT 1");
+            $itemBefore = MySql::conectar()->prepare("SELECT * FROM `$tabela` WHERE order_id < $order_id ORDER BY order_id ASC LIMIT 1");
             $itemBefore->execute();
             if($itemBefore->rowCount()==0)
             return;
