@@ -1,5 +1,15 @@
+<?php 
+if(isset($_GET['id'])){
+    $id = (int) $_GET['id'];
+}else{
+    Painel::messageToUser('erro', 'id não existe');
+    die();
+}
+?>
+
+
 <div class="box-content"><
-<h2><i class ="fas fa-plus"></i> Adicionar Depoimentos</h2>/div>
+<h2><i class ="fas fa-plus"></i> Editar Depoimentos</h2>/div>
 
 <form method="post" enctype="multipart/form-data">
     <?php 

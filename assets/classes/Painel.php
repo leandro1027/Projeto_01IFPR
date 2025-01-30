@@ -144,5 +144,10 @@
         echo '<script>location.href="'.$url.'"</script>';
         die();
     }
+    public static function get($tabela, $query, $arr){
+        $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` WHERE $query");
+        $sql->execute($arr);
+        return $sql->fetchAll();
+    }
 }
 ?>
