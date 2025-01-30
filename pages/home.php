@@ -85,36 +85,20 @@
     <div class="center">
         <div id="depoimentos" class="w50 left depoimentos-container">
             <h2 class="title">Depoimentos</h2>
-            <div class="depoimento-single">
-                <p class="depoimento-descricao">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsum eveniet, ratione magnam repellendus nobis vitae
-                    laborum fugiat deleniti omnis harum eius hic inventore
-                    asperiores, explicabo nisi unde optio eos magni.
+                <?php 
+                    $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.depoimentos`
+                                                        ORDER BY order_id DESC LIMIT 3");
+                    $sql->execute();
+                    $depoimentos= $sql->fetchAll();
+                    foreach($depoimentos as $key => $value){
+                    ?>
+                    <div class="depoimento-single">
+                        <p class="depoimento-descricao">
+                            <?php echo $value['depoimento'];?>
                 </p>
-                <p class="nome-autor">Lorem ipsum</p>
-            </div>
-            <div class="depoimento-single">
-                <p class="depoimento-descricao">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsum eveniet, ratione magnam repellendus nobis vitae
-                    laborum fugiat deleniti omnis harum eius hic inventore
-                    asperiores, explicabo nisi unde optio eos magni.
-                </p>
-                <p class="nome-autor">Lorem ipsum</p>
-            </div>
-            <div class="depoimento-single">
-                <p class="depoimento-descricao">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsum eveniet, ratione magnam repellendus nobis vitae
-                    laborum fugiat deleniti omnis harum eius hic inventore
-                    asperiores, explicabo nisi unde optio eos magni.
-                </p>
-                <p class="nome-autor">Lorem ipsum</p>
-            </div>
-            <div class="clear"></div>
-            <!--clear float-->
-        </div>
+                <p class="nome-autor"><?php	echo $value['nome']; ?> - <?php echo $value['data']; ?></p>
+                    </div>
+                <?php } ?>
         <!--center-->
         <div id="servicos" class="w50 left servicos-container">
             <h2 class="title">Serviços</h2>
