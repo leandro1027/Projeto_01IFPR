@@ -115,8 +115,8 @@
             if($certo){
                 $sql = MySql::conectar()->prepare($query);
                 $sql->execute($parametros);
-                $lastId = MySql::conectar()_>lastInsertId();
-                $sql = MySql::conectar()->prepare("UPDATE `$nomeTabela` SET  order_id = ? WHERE id = $lastId");
+                $lastId = MySql::conectar()->lastInsertId();
+                $sql = MySql::conectar()->prepare("UPDATE `$nomeTabela` SET order_id = ? WHERE id = $lastId");
                 $sql->execute(array($lastId));
             }
             return $certo;
@@ -125,9 +125,9 @@
 
     public static function getAll($tabela, $start = null, $end = null){
         if ($start == null && $end == null)
-            $sql = MySql::conectar()->prepare("SELECT * FROM `tabela`");
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` ORDER BY order_id DESC");
         else
-            $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` ORDER BY id DESC LIMIT $start, $end");
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tabela` ORDER BY order_id DESC LIMIT $start, $end");
 
         $sql->execute();
         return $sql->fetchAll();
