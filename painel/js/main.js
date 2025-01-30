@@ -25,5 +25,13 @@ $(function () {
     })
 
     $('[formato="data"]').mask('99/99/9999');
+    $('[actionBtn=delete]').click(function (){
+        let text;
+        if (confirm("Press a button!") == true) {
+        text = "You pressed OK!";
+        } else {
+        text = "You canceled!";
+        }
+    })
 
 })

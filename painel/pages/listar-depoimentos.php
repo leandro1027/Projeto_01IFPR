@@ -25,7 +25,7 @@ $depoimentos = Painel::getAll('tb_admin.depoimentos', ($paginaAtual - 1)*$porPag
             <td><?php echo $value['data']; ?></td>
             <td><?php echo $value['nome']; ?></td>
             <td><a class="edit" href=""><  <i class="fas fa-edit"></i></a></td>
-            <td><a class="delete" href="<?php echo INCLUDE_PATH_PAINEL ?>listar-depoimentos?excluir=<?php
+            <td><a actionBtn ="delete" href="<?php echo INCLUDE_PATH_PAINEL ?>listar-depoimentos?excluir=<?php
                                                  echo $value['id'];?>"><<i class="fas fa-trash"></i></a></td>
         </tr>
         <?php } ?>
