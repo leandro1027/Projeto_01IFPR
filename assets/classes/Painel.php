@@ -129,5 +129,15 @@
         $sql->execute();
         return $sql->fetchAll();
     }
+
+    public static function delete($tabela, $id=false){
+        if ($id ==  false){
+            $sql = MySql::conectar()->prepare("DELETE FROM `$tabela`");
+            $sql->execute();
+        }else{
+            $sql = MySql::conectar()->prepare("DELETE FROM `$tabela` WHERE id = ?");
+            $sql->execute(array($id));
+        }
+    }
 }
 ?>

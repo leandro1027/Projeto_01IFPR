@@ -1,4 +1,9 @@
 <?php 
+if (isset($_GET['excluir'])) { 
+    $idExcluir = intval($_GET['excluir']);
+    Painel::delete('tb_admin.depoimentos', $idExcluir);
+}
+
 $paginaAtual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 $porPagina = 2;
 $depoimentos = Painel::getAll('tb_admin.depoimentos', ($paginaAtual - 1)*$porPagina, $porPagina);
@@ -20,7 +25,8 @@ $depoimentos = Painel::getAll('tb_admin.depoimentos', ($paginaAtual - 1)*$porPag
             <td><?php echo $value['data']; ?></td>
             <td><?php echo $value['nome']; ?></td>
             <td><a class="edit" href=""><  <i class="fas fa-edit"></i></a></td>
-            <td><a class="delet" href=""><  <i class="fas fa-trash"></i></a></td>
+            <td><a class="delete" href="<?php echo INCLUDE_PATH_PAINEL ?>listar-depoimentos?excluir=<?php
+                                                 echo $value['id'];?>"><<i class="fas fa-trash"></i></a></td>
         </tr>
         <?php } ?>
     </table>
