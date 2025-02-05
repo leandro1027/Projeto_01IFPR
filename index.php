@@ -1,6 +1,12 @@
 <?php include('config.php'); ?>
 <?php Site::updateUserOnline(); ?>
-<?php Site::countUser(); ?>
+<?php Site::countUser();?>
+
+<?php
+$infoSite = MySql::conectar()->prepare("SELECT * FROM `tb_admin.config`");
+$infoSite->execute();
+$infoSite = $infoSite->fetch();
+?>
 
 <!DOCTYPE html>
 <html lang="en, pt-br">
@@ -27,6 +33,9 @@
     <!--CSS-->
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>assets/css/style.css">
 
+    <!--Título do site-->
+    <title><?php echo $infoSite['titulo']; ?></title>
+
     <!--favicon-->
     <link rel="shortcut icon" href="<?php echo INCLUDE_PATH; ?>favicon.ico" type="image/x-icon">
 
@@ -34,6 +43,7 @@
 </head>
 
 <body>
+
 
     <?php
     //echo $_GET["url"]; printar na tela a url
