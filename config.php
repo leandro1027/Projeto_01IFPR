@@ -1,5 +1,5 @@
 <?php
-
+ 
     /*cria uma sessão ou retorna o atual com base em um identificaor passado por
      meio de uma solicitação GET ou POST ou passado por meio de um cookie*/
     session_start();
@@ -11,7 +11,7 @@
     //fuso horario de SP
     date_default_timezone_set('America/Sao_Paulo');
 
-    define('NOME_EMPRESA', 'IFPR');
+    define(constant_name: 'NOME_EMPRESA', 'IFPR');
 
     define ('BASE_DIR_PAINEL', __DIR__.'/painel/');
 
