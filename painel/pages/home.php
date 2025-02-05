@@ -1,6 +1,5 @@
-<?php 
-$usuariosOnline = Painel::listUserOnline(); 
-$getUserTotal = Painel::getUserTotal(); 
+<?php $usuariosOnline = Painel::listUserOnline();
+$getUserTotal = Painel::getUserTotal();
 $getUserTotalToday = Painel::getUserTotalToday();
 $painelUsers = Painel::painelUsers();
 ?>
@@ -8,17 +7,17 @@ $painelUsers = Painel::painelUsers();
 <div class="box-content left w100">
     <h2><i class="fa-solid fa-house"></i> Painel de Controle - <?php echo NOME_EMPRESA;?></h2>
     <div class="box-metricas">
-        <div class="box-metricas-single">
+        <div class="box-metrica-single">
             <h2>Usuários Online</h2>
             <p><?php echo count($usuariosOnline);?></p>
         </div>
-        <div class="box-metricas-single">
+        <div class="box-metrica-single">
             <h2>Visitas Hoje</h2>
             <p><?php echo $getUserTotalToday;?></p>
         </div>
-        <div class="box-metricas-single">
+        <div class="box-metrica-single">
             <h2>Visitas Totais</h2>
-            <p> <?php echo $getUserTotal;?></p>
+            <p><?php echo $getUserTotal;?></p>
         </div>
     </div>
     <!--box-metricas-->
@@ -63,7 +62,7 @@ $painelUsers = Painel::painelUsers();
 <!--box-content-->
 
 <div class="box-content left w100">
-    <h2><i class="fa-brands fa-chrome"></i> Usuários do painel</h2>
+    <h2><i class="fa-brands fa-chrome"></i> Usuários do Painel</h2>
     <div class="table-responsive">
         <div class="row">
             <div class="col left w50">
@@ -78,12 +77,12 @@ $painelUsers = Painel::painelUsers();
         </div>
         <!--row-->
 
-        <?php 
-            foreach ($painelUsers as $key => $value) {
-        ?>
+        <?php foreach ($painelUsers as $key => $value) {?>
+
+        <!--Exemplo de inputs-->
         <div class="row">
             <div class="col left w50">
-                <span><?php echo $value['user'];?></span>
+                <h2><?php echo $value['user'];?></h2>
             </div>
             <!--col-->
             <div class="col left w50">
