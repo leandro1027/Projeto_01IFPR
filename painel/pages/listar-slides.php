@@ -57,12 +57,12 @@ $slides = Painel::getAll('tb_admin.slides', ($paginaAtual - 1) * $porPagina, $po
 
     <div class="paginacao">
         <?php 
-            $totalPaginas = ceil(count(Painel::getAll('tb_admin.depoimentos')) / $porPagina);
+            $totalPaginas = ceil(count(Painel::getAll('tb_admin.slides')) / $porPagina);
             for ($i = 1; $i <= $totalPaginas ; $i++){
                 if($i == $paginaAtual)
-                    echo '<a class="page-selected" href="' . INCLUDE_PATH_PAINEL . 'listar-depoimentos?pagina=' . $i . '">' . $i . '</a';
+                    echo '<a class="page-selected" href="' . INCLUDE_PATH_PAINEL . 'listar-slides?pagina=' . $i . '">' . $i . '</a';
                 else
-                    echo '<a href="' . INCLUDE_PATH_PAINEL . 'listar-depoimentos?pagina=' . $i . '">' . $i . '</a>';
+                    echo '<a href="' . INCLUDE_PATH_PAINEL . 'listar-slides?pagina=' . $i . '">' . $i . '</a>';
             }
         ?>
     </div>

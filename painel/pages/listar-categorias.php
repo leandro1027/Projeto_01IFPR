@@ -9,7 +9,7 @@
 
 $paginaAtual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 $porPagina = 4;
-$slides = Painel::getAll('tb_admin.categorias', ($paginaAtual - 1) * $porPagina, $porPagina);
+$categorias = Painel::getAll('tb_admin.categorias', ($paginaAtual - 1) * $porPagina, $porPagina);
 ?>
 
 <div class="box-content">
@@ -48,12 +48,12 @@ $slides = Painel::getAll('tb_admin.categorias', ($paginaAtual - 1) * $porPagina,
 
     <div class="paginacao">
         <?php 
-            $totalPaginas = ceil(count(Painel::getAll('tb_admin.depoimentos')) / $porPagina);
+            $totalPaginas = ceil(count(Painel::getAll('tb_admin.categorias')) / $porPagina);
             for ($i = 1; $i <= $totalPaginas ; $i++){
                 if($i == $paginaAtual)
-                    echo '<a class="page-selected" href="' . INCLUDE_PATH_PAINEL . 'listar-depoimentos?pagina=' . $i . '">' . $i . '</a';
+                    echo '<a class="page-selected" href="' . INCLUDE_PATH_PAINEL . 'listar-categorias?pagina=' . $i . '">' . $i . '</a';
                 else
-                    echo '<a href="' . INCLUDE_PATH_PAINEL . 'listar-depoimentos?pagina=' . $i . '">' . $i . '</a>';
+                    echo '<a href="' . INCLUDE_PATH_PAINEL . 'listar-categorias?pagina=' . $i . '">' . $i . '</a>';
             }
         ?>
     </div>
