@@ -1,56 +1,61 @@
+
 <?php
-    if(isset($_GET['id'])){
-        $id = (int) $_GET['id'];
-        $servico = Painel::get('tb_admin.slides', 'id = ?', array($id));
-    }else{
-        Painel::messageToUser('erro', 'ID não existe');
-        die();
-    }
+$site = Painel::get('tb_admin.config', false);
 ?>
 
 <div class="box-content">
-    <h2><i class="fas fa-edit"></i> Editar Slide</h2>
+    <h2><i class="fas fa-edit"></i> Editar Configurações do Site</h2>
+
     <form method="post" enctype="multipart/form-data">
         <?php 
         if (isset($_POST['acao'])){
-            $nome = $_POST['nome'];
-            $imagem = $_FILES['imagem'];
-            $imagem_atual = $_POST['imagem_atual'];
-
-            if($imagem['name'] != ''){
-                //O usuário selecionou a imagem
-                if(Painel::validImage($imagem)){
-                    Painel::deleteFile($imagem_atual);
-                    $imagem = Painel::uploadFile($imagem);
-                    $arr = ['nome'=>$nome, 'slide'=>$imagem, 'id'=>$id, 'nomeTabela'=>'tb_admin.slides'];
-                    Painel::update($arr);
-                    $slide = Painel::get('tb_admin.slides', 'id = ?', array($id));
-                    Painel::messageToUser('sucesso', 'Slide atualizado com a imagem!');
-                }else{
-                    Painel::messageToUser('erro', 'Formatos de imagem permitidos (jpeg, jpg ou png');
-                }
+            if(Painel::update($_POST, true)){
+                Painel::messageToUser('sucesso', 'Site editado com sucesso!');
+                $site = Painel::get('tb_admin.config', false);
             }else{
-                //O usuário não selecionou a imagem
-                $imagem = $imagem_atual;
-                $arr = ['nome'=>$nome, 'slide'=>$imagem, 'id'=>$id, 'nomeTabela'=>'tb_admin.slides'];
-                Painel::update($arr);
-                $slide = Painel::get('tb_admin.slides', 'id = ?', array($id));
-                Painel::messageToUser('sucesso', 'Slide atualizado!');
+                Painel::messageToUser('erro', 'Campos vazios não são permitidos');
             }
         }
         ?>
+
         <div class="form-group">
-            <label for="nome">Nome: </label>
-            <input type="text" name="nome" required value="<?php echo $slide['nome']; ?>">
+            <label for="titulo">Título do site: </label>
+            <input type="text" name="titulo" value="<?php echo $site['titulo']?>">
         </div>
         <!--form group-->
+
         <div class="form-group">
-            <label for="imagem">Imagem: </label>
-            <input type="file" name="imagem">
-            <input type="hidden" name="imagem_atual" value="<?php echo $slide['slide']; ?>">
+            <label for="nome_autor">Nome do autor do site: </label>
+            <input type="text" name="nome_autor" value="<?php echo $site['nome_autor']?>">
+        </div>
+        <!--form group-->   
+
+        <div class="form-group">
+            <label for="descricao">Descrição do autor do site: </label>
+            <textarea name="descricao"><?php echo $site['descricao']?></textarea>
         </div>
         <!--form group-->
+
+        <?php for ($i=1; $i <= 3; $i++) {
+
+        ?>
+
         <div class="form-group">
+            <label for="icone<?php echo $i;?>">Nome do ícone <?php echo $i;?>: </label>
+            <input type="text" name="icone<?php echo $i;?>" value="<?php echo $site['icone'.$i]?>">
+        </div>
+        <!--form group--> 
+
+        <div class="form-group">
+            <label for="descricao<?php echo $i;?>">Descrição do ícone <?php echo $i;?>: </label>
+            <textarea name="descricao<?php echo $i;?>"><?php echo $site['descricao'.$i]?></textarea>
+        </div>
+        <!--form group--> 
+
+        <?php }?>
+
+        <div class="form-group">
+            <input type="hidden" name="nomeTabela" value="tb_admin.config">
             <input type="submit" name="acao" value="Atualizar">
         </div>
         <!--form group-->

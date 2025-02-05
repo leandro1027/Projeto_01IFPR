@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -230,26 +231,6 @@ section.extras .depoimento-single {
 p.depoimentos-descricao {
     font-size: 18px;
 }
-/*table listar depoimentos*/
-.wraper-table{
-    overflow: auto;
-}
-table{
-    margin: 20px 0;
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-}
-table tr:nth-of-type(1){
-    background-color: rgb(75, 221, 75);
-    font-weight: bold;
-}
-table tr{
-    border-bottom: 1 px solid black;
-}
-table td{
-    padding: 10px;
-}
 
 p.nome-autor {
     color: red;
@@ -387,7 +368,6 @@ footer.fixed{
     width: 70%;
     height: 600px;
 }
-
 
 /*@media screen -> Mobile*/
 @media screen and (max-width: 768px) {
