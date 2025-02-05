@@ -19,70 +19,92 @@ if (isset($_GET['logout'])) {
 </head>
 
 <body>
-    <!--Barra lateral painel-->
+
+    <!--Barra Lateral Esquerda-->
     <aside>
         <div class="box-usuario">
             <?php if ($_SESSION['img'] == '') { ?>
-                <div class="avatar-usuario">
-                    <i class="fa-solid fa-user"></i>
-                </div><!--avatar usuario-->
+            <div class="avatar-usuario">
+                <i class="fa-solid fa-user"></i>
+            </div>
             <?php } else { ?>
 
-                <div class="imagem-usuario">
-                    <img src="<?php echo INCLUDE_PATH_PAINEL; ?>uploads/<?php echo $_SESSION['img']; ?>" alt="">
-                </div>
+            <div class="imagem-usuario">
+                <img src="<?php echo INCLUDE_PATH_PAINEL; ?>uploads/<?php echo $_SESSION['img']; ?>" alt="">
+            </div>
             <?php } ?>
 
             <div class="nome-usuario">
                 <h2><?php echo $_SESSION['nome']; ?></h2>
                 <p><?php echo pegaCargo($_SESSION['cargo']); ?></p>
-            </div><!--nome usuario-->
-        </div><!--box usuario-->
+            </div>
+        </div>
 
         <div class="items-menu">
             <h2>Cadastro</h2>
-            <a <?php selecionaMenu('cadastrar-slide')?> href="">Slide</a>
-            <a <?php selecionaMenu('cadastrar-depoimento')?> href="<?php echo INCLUDE_PATH_PAINEL; ?>Cadastrar-depoimento">Depoimentos</a>
-            <a <?php selecionaMenu('cadastrar-servico')?> href="">Serviço</a>
+            <a <?php selecionaMenu('cadastrar-slide');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>cadastrar-slide">Slide</a>
+            <a <?php selecionaMenu('cadastrar-depoimento');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>cadastrar-depoimento">Depoimentos</a>
+            <a <?php selecionaMenu('cadastrar-servico');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>cadastrar-servico">Serviço</a>
+            <a <?php selecionaMenu('cadastrar-categoria');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>cadastrar-categoria">Categoria</a>
+            <a <?php selecionaMenu('cadastrar-noticia');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>cadastrar-noticia">Notícia</a>
+
             <h2>Gestão</h2>
-            <a <?php selecionaMenu('listar-slides')?> href="">Slide</a>
-            <a <?php selecionaMenu('listar-Depoimentos')?> href="<?php echo INCLUDE_PATH_PAINEL; ?>listar-depoimentos">Depoimentos</a>
-            <a <?php selecionaMenu('listar-servicos')?> href="">Serviços</a>
-            <h2>Usuario</h2>
-            <a <?php selecionaMenu('editar-usuario')?> href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-usuario">Editar</a>
-            <a <?php selecionaMenu('adicionar-usuario')?> <?php verificaPermissaoMenu(2) ?> href="<?php echo INCLUDE_PATH_PAINEL;?>adicionar-usuario"></a>
+            <a <?php selecionaMenu('listar-slides');?> href="<?php echo INCLUDE_PATH_PAINEL;?>listar-slides">Slide</a>
+            <a <?php selecionaMenu('listar-depoimentos');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>listar-depoimentos">Depoimentos</a>
+            <a <?php selecionaMenu('listar-servicos');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>listar-servicos">Serviço</a>
+            <a <?php selecionaMenu('listar-categorias');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>listar-categorias">Categorias</a>
+            <a <?php selecionaMenu('listar-noticias');?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>listar-noticias">Notícias</a>
+
+            <h2>Usuário</h2>
+            <a <?php selecionaMenu('editar-usuario')?>
+                href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-usuario">Editar</a>
+            <a <?php selecionaMenu('adicionar-usuario')?> <?php verificaPermissaoMenu(2) ?>
+                href="<?php echo INCLUDE_PATH_PAINEL;?>adicionar-usuario">Adicionar</a>
             <h2>Configuração</h2>
-            <a <?php selecionaMenu('editar')?> href="">Editar</a>
-        </div><!--items-menu-->
-
+            <a <?php selecionaMenu('editar');?> href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-site">Editar</a>
+        </div>
     </aside>
-    <!--Barra lateral painel-->
-    <header>
 
+    <header>
         <div class="center">
             <div class="menu-btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
             <div class="logout">
-                <a href="<?php echo INCLUDE_PATH_PAINEL; ?>?logout=1">
-                    <i class="fas fa-sign-out" aria-hidden="true"></i>
+                <a href="<?php echo INCLUDE_PATH_PAINEL; ?>?logout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </a>
             </div>
+            <!--logout-->
 
             <div class="home-btn">
-                <a <?php if(@$_GET['url'] == ''){ ?> style="color:black:" <?php } ?>
+                <a <?php if (@$_GET['url'] == '') { ?> style="color:black;" <?php } ?>
                     href="<?php echo INCLUDE_PATH_PAINEL; ?>">
-                    <i class="fa-solid fa-house" aria-hidden="true"></i></a>
+                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+                </a>
             </div>
+            <!--home-btn-->
+
             <div class="clear"></div>
         </div>
+        <!--center-->
     </header>
 
     <div class="content">
         <?php
-        Painel::loadPage();
+            Painel::loadPage();
         ?>
-    </div><!-- content -->
+    </div>
+    <!--content-->
 
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
