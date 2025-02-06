@@ -71,6 +71,7 @@ $infoSite = $infoSite->fetch();
             <nav class="desktop right">
                 <ul>
                     <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>noticias">Notícias</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
@@ -81,6 +82,7 @@ $infoSite = $infoSite->fetch();
                 <div class="bars-mobile fa-solid fa-bars"></div>
                 <ul>
                     <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>noticias">Notícias</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
