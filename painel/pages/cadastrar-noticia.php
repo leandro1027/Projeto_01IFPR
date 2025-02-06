@@ -16,7 +16,7 @@
                     Painel::messageToUser('erro', 'A imagem de capa precisa ser selecionada!');
                 }else{
                     if(Painel::validImage($capa)){
-                        $verificaNoticia = MySql::conectar()->prepare("SELECT * FROM `tb_admin.noticias` WHERE titulo = ?");  
+                        $verificaNoticia = MySql::conectar()->prepare("SELECT * FROM `tb_admin.noticias` WHERE titulo = ? AND categoria_id = ?");  
                         $verificaNoticia->execute(array($titulo));
                         if($verificaNoticia->rowCount()==0){
                             $imagem = Painel::uploadFile($capa);
@@ -49,7 +49,7 @@
                 $categorias = Painel::getAll('tb_admin.categorias');
                 foreach($categorias as $key => $value){
                     ?>
-                    <option value="<?php echo $value['id']; ?>"><?php echo $value ['nome'] ?></option>
+                    <option <?php if($value['id'] == @$_POST['categoria_id']) echo 'selected'; ?> value="<?php echo $value['id']; ?>"><?php echo $value ['nome'] ?></option>
                     <?php } ?>
                 </select>
         </div>
@@ -57,12 +57,12 @@
         <!--form group-->
         <div class="form-group">
             <label for="imagem">Titulo: </label>
-            <input type="text" name="titulo" required>
+            <input type="text" name="titulo" value="<?php recoverPost('titulo');?>"required>
         </div>
 
         <div class="form-group">
             <label for="imagem">Conteudo: </label>
-            <textarea name="conteudo" id=""></textarea>
+            <textarea name="conteudo" id=""><?php recoverPost('conteudo');?></textarea>
         </div>
 
         <div class="form-group">
