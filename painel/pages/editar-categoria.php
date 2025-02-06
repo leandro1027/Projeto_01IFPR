@@ -13,28 +13,28 @@
 
     <form method="post" enctype="multipart/form-data">
         <?php 
-        if (isset($_POST['acao']))
-            
-            if(Painel::update($_POST['nome'])){
-                $slug = Painel::generateSlug($_POST['nome']);
-                $arr = array_merge($_POST, array('slug'=>$slug));
-                $verificarCategoria = MySql::conectar()->prepare("SELECT * FROM `tb_admin.categorias` WHERE nome = ? AND id != ?");
-                $verificarCategoria->execute(array($_POST['nome'], $id));
-                if($verificarCategoria->rowCount() == 1){
-                    Painel::messageToUser('erro', 'A categoria já existe!');
+        if (isset($_POST['acao'])){
+            $slug = Painel::generateSlug($_POST['nome']);
+            $arr = array_merge($_POST, array('slug'=>$slug));
+            $verificarCategoria = MySql::conectar()->prepare("SELECT * 
+                                                            FROM `tb_admin.categorias`
+                                                            WHERE nome = ? AND id != ?");
+            $verificarCategoria->execute(array($_POST['nome'], $id));
+            if($verificarCategoria->rowCount() == 1){
+                Painel::messageToUser('erro', 'A categoria já existe!');
             }else{
-                if (Painel::update($arr)) {
-                    Painel::messageToUser('suceso','Categoria editada com sucesso!');
-                    $categoria = Painel::get('tb_admin.categorias', 'id = ?', array($id));
+                if(Painel::update($arr)){
+                    Painel::messageToUser('sucesso', 'Categoria editada com sucesso!');
+                    $servico = Painel::get('tb_admin.categorias', 'id = ?', array($id));
                 }else{
-                    Painel::messageToUser('erro','Campos vazios não são permitidos');
+                    Painel::messageToUser('erro', 'Campos vazios não são permitidos');
                 }
             }
         }
         ?>
         <div class="form-group">
             <label for="categorias">Categoria: </label>
-            <input type="text"> name="nome" value = "<?php echo $categoria['nome'];?>">
+            <input type="text" name="nome" value="<?php echo $categoria['nome'];?>">
         </div>
         <!--form group-->
 
