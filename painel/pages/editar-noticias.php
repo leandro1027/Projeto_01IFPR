@@ -42,10 +42,24 @@
                 $noticia = Painel::get('tb_admin.noticias', 'id = ?', array($id));
                 Painel::messageToUser('sucesso', 'Noticia atualizada!');
             }
+            }else{
+                Painel::messageToUser('erro', 'Já existe uma notícia com este titulo!');
+            }
         }
         ?>
         <div class="form-group">
-            <label for="nome">Nome: </label>
+            <label for="categoria_id">Categoria: </label>
+            <select name="categoia_id" id="">
+                <?php
+                    $categorias = Painel::getAll('tb_admin.categorias');
+                    foreach($categorias as $key => $value){
+                    ?>
+                        <option <?php if($value['$id'] == $noticia['categoria_id']) echo 'selected';?>
+                            value="<?php echo $value['id']; ?>"><?php echo $value['nome']?></option>
+                    <?php } ?>
+                    <select>
+                </div>
+        
             <input type="text" name="nome" required value="<?php echo $noticia['nome']; ?>">
         </div>
         <!--form group-->
