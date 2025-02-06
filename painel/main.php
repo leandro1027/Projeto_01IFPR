@@ -115,6 +115,26 @@ if (isset($_GET['logout'])) {
     <script src="<?php echo INCLUDE_PATH_PAINEL; ?>js/main.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL; ?>js/jquery_mask.js"></script>
 
+    <!-- TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/e44omhvwjani1pnvgoylkv16y53m38s2de33b6471bltkzhi/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    <script>
+    tinymce.init({
+        selector: '.tinymce',
+        plugins: [
+            'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media',
+            'searchreplace', 'table', 'visualblocks', 'wordcount',
+            'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker',
+            'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage',
+            'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags',
+            'autocorrect', 'typography', 'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
+        ],
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        height: 500
+    });
+    </script>
+
 </body>
 
 </html>
