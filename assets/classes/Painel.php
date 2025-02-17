@@ -112,28 +112,36 @@
         public static function insert($arr){
             $certo = true;
             $nomeTabela = $arr['nomeTabela'];
-            $query =  "INSERT INTO `$nomeTabela` VALUES (null";
+            $colunas = [];
+            $placeholders = [];
+            $parametros = [];
+        
             foreach ($arr as $key => $value){
-                $nome = $key;
-                if($nome == 'acao' || $nome == 'nomeTabela')
+                if($key == 'acao' || $key == 'nomeTabela')
                     continue;
                 if($value == ''){
                     $certo = false;
                     break;
                 }
-                $query .=",?";
+                $colunas[] = $key;
+                $placeholders[] = "?";
                 $parametros[] = $value;
             }
-            $query .=")";
+        
             if($certo){
+                $colunas = implode(", ", $colunas);
+                $placeholders = implode(", ", $placeholders);
+                $query = "INSERT INTO `$nomeTabela` ($colunas) VALUES ($placeholders)";
                 $sql = MySql::conectar()->prepare($query);
                 $sql->execute($parametros);
+        
                 $lastId = MySql::conectar()->lastInsertId();
                 $sql = MySql::conectar()->prepare("UPDATE `$nomeTabela` SET order_id = ? WHERE id = $lastId");
                 $sql->execute(array($lastId));
-            }  
+            }
             return $certo;
         }
+        
 
         // Aproveitando o método para obter tudo
         public static function getAll($tabela, $start = null, $end = null){
