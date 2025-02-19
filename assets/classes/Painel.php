@@ -185,9 +185,10 @@
             $first = false;
             $nomeTabela = $arr['nomeTabela'];
             $query = "UPDATE `$nomeTabela` SET ";
+            $parametros = []; // Initialize the array
             foreach($arr as $key => $value){
                 $nome = $key;
-                if($nome == 'acao' || $nome =='nomeTabela' || $nome = 'id')
+                if($nome == 'acao' || $nome =='nomeTabela' || $nome == 'id')
                     continue;
                 if($value == ''){
                     $certo = false;
@@ -216,7 +217,7 @@
 
         public static function orderItem($tabela, $orderType, $id){
             if ($orderType == 'up'){
-                $infoItemAtual = Painel::get($tabela, 'id=?', array('$id'));
+                $infoItemAtual = Painel::get($tabela, 'id=?', array($id));
                 $order_id = $infoItemAtual['order_id'];
                 $itemBefore = MySql::conectar()->prepare("SELECT * FROM `$tabela` WHERE order_id < $order_id ORDER BY order_id DESC LIMIT 1");
                 $itemBefore->execute();
@@ -230,7 +231,7 @@
                                      'id' => $infoItemAtual['id'],
                                      'order_id' => $itemBefore['order_id']));
             }else if($orderType == 'down'){
-                $infoItemAtual = Painel::get($tabela, 'id=?', array('$id'));
+                $infoItemAtual = Painel::get($tabela, 'id=?', array($id));
                 $order_id = $infoItemAtual['order_id'];
                 $itemBefore = MySql::conectar()->prepare("SELECT * FROM `$tabela` WHERE order_id > $order_id ORDER BY order_id ASC LIMIT 1");
                 $itemBefore->execute();
