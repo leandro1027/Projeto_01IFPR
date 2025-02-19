@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +9,11 @@
 html, body{
     overflow-x: hidden;
     height: 100%;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 10px;
 }
 
 .center {
@@ -174,6 +178,14 @@ section.descricao-autor{
 
 section.descricao-autor h2{
     font-size: 32px; /*Tamanho da fonte*/
+}
+
+section.descricao-autor img{
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
 }
 
 section.descricao-autor p{
@@ -367,6 +379,88 @@ footer.fixed{
     margin: 20px auto;
     width: 70%;
     height: 600px;
+}
+
+/* Portal de Notícias */
+.header-noticias {
+    width: 100%;
+    padding: 40px 0;
+    background-color: rgb(117, 243, 117);
+    box-shadow: 5px 5px 10px rgb(75, 221, 75);
+}
+
+.header-noticias h2:nth-of-type(1) {
+    font-size: 42px;
+}
+
+.header-noticias h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    border-radius: 10px;
+}
+
+section.container-portal { 
+    padding: 50px 0;
+}
+
+.sidebar {
+    float: left;
+    width: 22%;
+}
+
+.box-content-sidebar {
+    width: 100%;
+    background-color: rgb(75, 221, 75);
+    padding: 15px;
+    color: white;
+    box-shadow: 5px 5px 10px rgb(75, 221, 75);
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.box-content-sidebar h3 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.box-content-sidebar input[type="text"],
+.box-content-sidebar select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid black;
+    font-size: 18px;
+    padding-left: 8px;
+    margin-top: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.box-content-sidebar input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    color: white;
+    background-color: black;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+}
+
+.conteudo-portal {
+    float: right;
+    width: 76%;
+    padding: 0 2%;
+    text-align: center;
+}
+
+.header-conteudo-portal {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.header-conteudo-portal h2 {
+    font: 22px;
+    font-weight: normal;
 }
 
 /*@media screen -> Mobile*/
