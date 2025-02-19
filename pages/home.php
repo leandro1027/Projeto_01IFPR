@@ -17,7 +17,7 @@ $slides = $slides->fetchAll();
     <!--Overlay-->
     <div class="center">
         <form action="">
-            <h2>Digite seu melhor Email para receber as notificações</h2>
+            <h2>Digite seu melhor Email!</h2>
             <input type="email" name="email" id="email" required>
             <input type="submit" name="enviar" value="Enviar">
         </form>

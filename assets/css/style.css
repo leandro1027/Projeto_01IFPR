@@ -172,25 +172,27 @@ section.banner-principal form input[type=submit] {
 }
 
 /*descricao-autor*/
-section.descricao-autor{
+section.descricao-autor {
     padding: 30px 0; /*Espaçamento interno cima e baixo*/
+    display: flex; /*Ativa o flexbox*/
+    align-items: center; /*Alinha os itens verticalmente ao centro*/
 }
 
-section.descricao-autor h2{
+section.descricao-autor h2 {
     font-size: 32px; /*Tamanho da fonte*/
 }
 
-section.descricao-autor img{
-    width: 150px;
-    height: 150px;
-    display: inline-block;
-    vertical-align: middle;
+section.descricao-autor img {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
+    /*Espaçamento entre a imagem e o texto*/
 }
 
-section.descricao-autor p{
+section.descricao-autor p {
     margin-top: 10px; /*Espaçamento externo cima*/
     font-size: 18px; /*Tamanho da fonte*/
+     margin-right: 20px;
     text-align: justify; /*Alinhamento justificado*/
 }
 
