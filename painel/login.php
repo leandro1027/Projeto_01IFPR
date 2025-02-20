@@ -71,7 +71,7 @@
                 }
             ?>
 
-            <img src="ifpr-login.png">
+            <img class="img-login" src="logoGamer.avif">
 
             <form action="" method="post">
                 <input type="text" name="user" placeholder="Login" required>

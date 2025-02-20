@@ -394,6 +394,10 @@ table td{
     background-color: black;
     box-shadow: 1px 1px 5px black;
 }
+.img-login{
+    height: 150px;
+    width: 120px;
+}
 
 .items-menu a {
     display: block;
@@ -405,7 +409,7 @@ table td{
 }
 
 .menu-active{
-    background-color: rgb(0, 34, 0);
+    background-color: rgb(39, 9, 88);
 }
 
 .menu-active::before{

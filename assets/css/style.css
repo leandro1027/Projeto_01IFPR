@@ -171,30 +171,36 @@ section.banner-principal form input[type=submit] {
     cursor: pointer; /*Tipo do cursor do mouse*/
 }
 
-/*descricao-autor*/
-section.descricao-autor {
-    padding: 30px 0; /*Espaçamento interno cima e baixo*/
-    display: flex; /*Ativa o flexbox*/
-    align-items: center; /*Alinha os itens verticalmente ao centro*/
+/* Estilização da seção */
+section.descricao-autor .center {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaçamento uniforme */
+    flex-wrap: wrap; /* Permite responsividade */
+    gap: 20px; 
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
-section.descricao-autor h2 {
-    font-size: 32px; /*Tamanho da fonte*/
+/* Ajuste para cada coluna */
+.w50 {
+    width: 48%; /* Divide a tela em duas partes quase iguais */
 }
 
-section.descricao-autor img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    /*Espaçamento entre a imagem e o texto*/
+/* Ajuste para a imagem */
+.descricao-autor img {
+    width: 100%;
+    max-width: 500px; /* Garante que a imagem não fique gigante */
+    height: auto;
+    border-radius: 8px;
 }
 
-section.descricao-autor p {
-    margin-top: 10px; /*Espaçamento externo cima*/
-    font-size: 18px; /*Tamanho da fonte*/
-     margin-right: 20px;
-    text-align: justify; /*Alinhamento justificado*/
+/* Ajuste para o texto */
+.descricao-autor h2, .descricao-autor p {
+    text-align: left; /* Alinha o texto à esquerda */
 }
+
+
 
 /*Especialidades*/
 section.especialidades {
